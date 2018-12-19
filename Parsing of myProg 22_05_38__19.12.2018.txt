@@ -1,0 +1,32 @@
+<C:\Users\Ivan\Desktop\myProg\mvl\Math_LNGTankerSpherical_Cargo.mvl>
+All classes is OK!</C:\Users\Ivan\Desktop\myProg\mvl\Math_LNGTankerSpherical_Cargo.mvl>
+
+
+<C:\Users\Ivan\Desktop\myProg\mvl\testcls — копия (good).mvl>
+All classes is OK!</C:\Users\Ivan\Desktop\myProg\mvl\testcls — копия (good).mvl>
+
+
+<C:\Users\Ivan\Desktop\myProg\mvl\testcls — копия.mvl>
+In B
+    link(L_3) P1, P2
+
+
+In C
+    link(L_13) P4, P3
+
+
+</C:\Users\Ivan\Desktop\myProg\mvl\testcls — копия.mvl>
+
+
+<C:\Users\Ivan\Desktop\myProg\mvl\testcls.mvl>
+In B
+    link(L_3) P1, P2
+
+
+In C
+    link(L_13) P4, P3
+
+
+</C:\Users\Ivan\Desktop\myProg\mvl\testcls.mvl>
+
+

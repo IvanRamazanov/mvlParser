@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="mvlParser:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/mvlParser_jar</output-path>
+    <root id="archive" name="mvlParser.jar">
+      <element id="module-output" name="mvlParser" />
+    </root>
+  </artifact>
+</component>

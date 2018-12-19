@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="center" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <Button fx:id="openFileBtn" onMouseClicked="#open" text="Open File" />
+    <Button fx:id="openFolderBtn" onMouseClicked="#opedDirectory" text="Open Folder" />
+    <Button fx:id="dumpClasses" onMouseClicked="#findClasses" text="Show all classes" />
+   <ScrollPane minHeight="150.0" minWidth="250.0">
+     <content>
+       <AnchorPane minHeight="150.0" minWidth="200.0">
+            <children>
+                <Text fx:id="output" boundsType="VISUAL" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            </children>
+         </AnchorPane>
+     </content>
+   </ScrollPane>
+</VBox>
