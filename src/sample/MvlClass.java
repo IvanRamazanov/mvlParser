@@ -29,6 +29,7 @@ public class MvlClass {
                         continue loop;
                     }
                 }
+                clusters.add(new Cluster(link));
             }
         }
     }
@@ -78,6 +79,15 @@ public class MvlClass {
             if(!contains(link.getSource())){
                 this.nodes.add(link.getSource());
             }
+        }
+
+        @Override
+        public String toString(){
+            StringBuilder str=new StringBuilder();
+            for(String s:nodes){
+                str.append(s+", ");
+            }
+            return "[ "+str.toString()+" ]";
         }
 
         boolean contains(String node){

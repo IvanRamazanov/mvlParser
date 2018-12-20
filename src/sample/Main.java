@@ -9,12 +9,13 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main extends Application {
+
+    static String[] specialUselessWords =new String[]{"public","opened","local", "continuous", "private", "hybrid", "compound"};
+    static String[] classWords=new String[]{"package","class"},
+                    allSpecialWords = new String[]{"public","opened","local", "continuous", "private", "hybrid", "compound","package","class"};
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -30,7 +31,7 @@ public class Main extends Application {
             String TAB="    ",LF="\r\n";
 //            Scanner sc = new Scanner(file);
 //            sc.useDelimiter(LF);
-            String out;
+            String out="";
 //            MvlClass mvlClass=null;
 //
 //            boolean fistOne=true;
@@ -115,7 +116,11 @@ public class Main extends Application {
             while (sc.hasNext()) {
                 String line = sc.nextLine();
                 line = shift(line);
-                if ((line.contains("package ") || line.contains("class ")) && line.endsWith(" is")) {
+                line = clearLine(line);
+                if(line.startsWith("--"))
+                    continue;
+
+                if ((line.startsWith("package ") || line.startsWith("class ")) && line.endsWith(" is")) {
                     //class or package found
                     String className = getClassName(line);
 
@@ -136,6 +141,29 @@ public class Main extends Application {
             System.err.print(err.getMessage());
         }
         return mvlClasses;
+    }
+
+    private static String clearLine(String str){
+        StringBuilder out=new StringBuilder(str);
+        StringBuilder tmp=new StringBuilder(100);
+        loop:
+        for(int i=0;i<out.length();i++){
+            char ch=out.charAt(i);
+            if(ch!=' '){
+                tmp.append(ch);
+            }else{
+                for(String s: specialUselessWords){
+                    if(isEqual(s,tmp)){
+                        out.delete(0,tmp.length()+1);
+                        tmp.setLength(0);
+                        i=-1;
+                        continue loop;
+                    }
+                }
+                return out.toString();
+            }
+        }
+        return out.toString();
     }
 
     public static void layoutResults(String filePrefix, String data){
@@ -202,7 +230,7 @@ public class Main extends Application {
     }
 
     private static String getClassName(String line){
-        String[] specialWords=new String[]{"public","opened","local", "package","continuous", "class", "private", "hybrid", "compound"};
+
         StringBuilder out=new StringBuilder(line);
         int len=line.length();
         StringBuilder tmp=new StringBuilder(100);
@@ -212,7 +240,7 @@ public class Main extends Application {
             if(ch!=' '){
                 tmp.append(ch);
             }else{
-                 for(String s:specialWords){
+                 for(String s: allSpecialWords){
                      if(isEqual(s,tmp)){
                          out.delete(0,tmp.length()+1);
                          tmp.setLength(0);

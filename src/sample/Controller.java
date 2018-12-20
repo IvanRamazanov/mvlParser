@@ -55,7 +55,7 @@ public class Controller {
             }else if(f.getName().endsWith(".mvl")){
                 String res=Main.parse(f);
                 out.append(
-                        "< file:"+f.getAbsolutePath()+">"+LF
+                        "< file: "+f.getAbsolutePath()+">"+LF
                         +res
                         +"</file: "+f.getAbsolutePath()+">"+LF+LF+LF+LF+LF);
             }
